@@ -59,6 +59,17 @@ fun AppMainScreen() {
                         navController = navController
                     )
                 }
+                composable(DrawerScreens.TerminalSetting.route) {
+                    TerminalSettings(
+                        openMenu = {
+                            navController.navigate(DrawerScreens.MenuPage.route)
+                        }
+                    )
+                }
+                composable(DrawerScreens.MenuPage.route) {
+                    MenuPage(openDrawer = { openDrawer() },
+                        openTerminalSettings = { navController.navigate(DrawerScreens.TerminalSetting.route) })
+                }
             }
         }
     }
